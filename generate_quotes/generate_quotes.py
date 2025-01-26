@@ -32,7 +32,7 @@ def generate_quote(hour, minute: int, prev_quotes):
             # Select a random type of literature from the list
             selected_type = random.choice(types_of_literature)
             time_location = random.choice(["start", "middle", "end"])
-            loquacity = random.choice(["sparse", "ornate", "brief", "very short"])
+            # loquacity = random.choice(["sparse", "ornate", "brief", "very short"])
             style = random.choice(["abstract", "poetic", "concrete with names, places, etc", "koan-like", "concrete with specific robots", "haiku-like", "profound", "factual"])
             focus = random.choice(["a specific robot", "a person with robot", "a person using AI", "people using AI", "people with robots"])
 
@@ -69,17 +69,16 @@ def generate_quote(hour, minute: int, prev_quotes):
 
             print(f"type: {selected_type}")
             print(f"style: {style}")
-            print(f"loquacity: {loquacity}")
+            # print(f"loquacity: {loquacity}")
             print(f"focus: {focus}")
             print(f"chosen time: {chosen_time}")
             print(f"Initials: {first_initial}{second_initial}")
 
 
             prompt = (
-                "Generate a quote about a humans and robots and AI working together."
+                "Generate a quote about humans and robots and AI working together well. It might be first person, third person, or a quote from a fictional character."
                 "The quote must be thought provoking and quirky, whimsical, or poetic."
-                "Text should not say this directly, however they draw from a projected future where human life and capabilities are enhanced by robots and artificial intelligence."
-                f"The quote must focus on {focus} and should be in the style of:{selected_type}, with loquacity: {loquacity} and style: {style}."
+                f"The quote must focus on {focus} and should be in the style of author:{selected_type}, with style: {style}."
                 "If this style supports it, the text should be grounded around a single actor, be they a person, robot or AI."
                 f"Quote must includes the specific text {chosen_time} somewhere near the {time_location} of the sentence."
                 f"Time of day for the quote is {hour:02}:{minute:02}."
@@ -96,7 +95,7 @@ def generate_quote(hour, minute: int, prev_quotes):
 
                 messages=[
                 {
-                    "role": "system", "content": "You are a globally renowned writer, critically acclaimed for your wit, insight and wisdom.",
+                    "role": "system", "content": "You are a globally renowned writer, critically acclaimed for your wit, insight, wisdom and humor.",
                     "role": "user", "content": prompt
                 }
                 ],
